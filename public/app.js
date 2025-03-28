@@ -26,3 +26,10 @@ window.onpopstate = function (e) {
   const hash = window.location.hash;
   routing(pathname, hash);
 };
+
+// Dark/Light Theme Toggle
+document.addEventListener("click", (e) => {
+  if (e.target.id === "themeToggleBtn") {
+    document.body.classList.toggle("dark-mode");
+  }
+});

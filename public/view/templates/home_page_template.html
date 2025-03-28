@@ -1,5 +1,5 @@
 <div class="syllabus-upload">
-  <h2 class="text-center">Upload Syllabus</h2>
+  <h2 class="text-center">Syllabi Upload</h2>
   <form id="syllabus-upload-form">
       <!-- Department Dropdown -->
       <div class="mb-3">
@@ -17,7 +17,7 @@
 
       <!-- Course Number -->
       <div class="mb-3">
-          <label for="courseNumber" class="form-label">Course Number</label>
+          <label for="courseNumber" class="form-label">CRN Number</label>
           <input name="courseNumber" required type="text" class="form-control" id="courseNumber" placeholder="Enter course number">
       </div>
 
@@ -29,16 +29,12 @@
 
       <!-- Syllabus Upload -->
       <div class="mb-3">
-          <label for="syllabus" class="form-label">Syllabus (PDF)</label>
+          <label for="syllabus" class="form-label">Syllabi (PDF ONLY)</label>
           <input name="syllabus" required type="file" accept="application/pdf" class="form-control" id="syllabus">
       </div>
 
-      <!-- Upload Progress Bar -->
-      <div class="progress mb-3">
-          <div id="uploadProgressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-      </div>
 
       <!-- Submit Button -->
-      <button type="submit" class="btn btn-primary">Upload</button>
+      <button type="submit" class="btn btn-dark">Upload</button>
   </form>
 </div>

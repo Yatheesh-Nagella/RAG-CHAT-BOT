@@ -1,0 +1,44 @@
+<div class="syllabus-upload">
+  <h2 class="text-center">Upload Syllabus</h2>
+  <form id="syllabus-upload-form">
+      <!-- Department Dropdown -->
+      <div class="mb-3">
+          <label for="department" class="form-label">Department</label>
+          <select name="department" required class="form-select" id="department">
+              <option value="" disabled selected>Select department</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Data Science">Data Science</option>
+              <option value="Electrical Engineering">Electrical Engineering</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Business Administration">Business Administration</option>
+              <option value="Biotechnology">Biotechnology</option>
+          </select>
+      </div>
+
+      <!-- Course Number -->
+      <div class="mb-3">
+          <label for="courseNumber" class="form-label">Course Number</label>
+          <input name="courseNumber" required type="text" class="form-control" id="courseNumber" placeholder="Enter course number">
+      </div>
+
+      <!-- Course Name -->
+      <div class="mb-3">
+          <label for="courseName" class="form-label">Course Name</label>
+          <input name="courseName" required type="text" class="form-control" id="courseName" placeholder="Enter course name">
+      </div>
+
+      <!-- Syllabus Upload -->
+      <div class="mb-3">
+          <label for="syllabus" class="form-label">Syllabus (PDF)</label>
+          <input name="syllabus" required type="file" accept="application/pdf" class="form-control" id="syllabus">
+      </div>
+
+      <!-- Upload Progress Bar -->
+      <div class="progress mb-3">
+          <div id="uploadProgressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+</div>

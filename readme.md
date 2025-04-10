@@ -1,4 +1,4 @@
-# Smart Data Query Assistant
+# RAG CHAT BOT
 
 This project is a web-based application that allows students to interact with uploaded course syllabi using natural language queries. The platform integrates Firebase for data management and storage and uses `pdf.js` for PDF parsing to provide a seamless experience.
 
@@ -9,7 +9,7 @@ This project is a web-based application that allows students to interact with up
 - **Filter by Department**: Students can select a department to view all associated courses and their syllabi.
 - **Download Syllabus**: Students can click on any course to download or view the syllabus PDF.
 - **Upload PDF Syllabus**: Users can upload PDF syllabi for processing and storage.
-- **Natural Language Query**: Students can ask questions about the syllabus using a natural language interface powered by a backend LLM server.
+- **Natural Language Query**: Students can ask questions about the syllabus using a natural language interface powered by a backend LLM server hosted in UCO.
 
 ---
 

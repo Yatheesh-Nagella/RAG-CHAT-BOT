@@ -42,7 +42,7 @@ export async function getSyllabus(department) {
             downloadLink.href = fileURL;
             downloadLink.target = "_blank";
             downloadLink.textContent = "Download";
-            downloadLink.className = "btn btn-sm btn-primary";
+            downloadLink.className = "btn btn-sm btn-dark";
 
             const askButton = document.createElement("button");
             askButton.textContent = "Ask";

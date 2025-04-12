@@ -16,7 +16,7 @@ export async function onsubmitSyllabusUploadForm(e) {
     }
 
     const formData = new FormData(e.target);
-    const department = formData.get("department");
+    const department = formData.get("department").trim().toLowerCase();
     const courseNumber = formData.get("courseNumber");
     const courseName = formData.get("courseName");
     const file = formData.get("syllabus");
@@ -26,10 +26,6 @@ export async function onsubmitSyllabusUploadForm(e) {
         return;
     }
 
-    // Initialize the progress bar
-    const progressBar = document.getElementById("uploadProgressBar");
-    progressBar.style.width = "0%";
-    progressBar.textContent = "0%";
 
     try {
         // Step 1: Extract Text from PDF
@@ -46,40 +42,30 @@ export async function onsubmitSyllabusUploadForm(e) {
 
         uploadTask.on(
             "state_changed",
-            (snapshot) => {
-                // Update progress bar
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                progressBar.style.width = `${progress}%`;
-                progressBar.textContent = `${Math.round(progress)}%`;
-            },
+            undefined,
             (error) => {
                 console.error("Error during file upload:", error);
                 alert("Failed to upload file. Please try again.");
             },
             async () => {
-                // Step 3: Get the downloadable URL
                 const fileURL = await getDownloadURL(uploadTask.snapshot.ref);
-
-                // Step 4: Save Metadata and Extracted Text to Firestore
                 const syllabiCollection = collection(db, "syllabi");
+
                 await addDoc(syllabiCollection, {
                     department,
                     courseNumber,
                     courseName,
                     fileURL,
-                    pdfExtractedData: pdfExtractedData || "", // Save extracted data
-                    uploadedBy: user.email, // Log who uploaded it
-                    timestamp: new Date(), // Add timestamp for tracking
+                    pdfExtractedData: pdfExtractedData || "",
+                    uploadedBy: user.email,
+                    timestamp: new Date(),
                 });
 
-                // Reset the form
                 e.target.reset();
-                progressBar.style.width = "0%";
-                progressBar.textContent = "Upload Complete";
-
                 alert("Syllabus uploaded successfully!");
             }
         );
+
     } catch (error) {
         console.error("Error uploading syllabus:", error);
         alert("Failed to upload syllabus. Please try again.");

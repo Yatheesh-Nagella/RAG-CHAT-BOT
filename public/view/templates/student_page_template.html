@@ -1,34 +1,32 @@
 <div class="container my-4">
-    <h1 class="text-center">Student Page</h1>
-    
-    <!-- Department Filter -->
-    <div class="row mb-3">
-      <div class="col">
-        <label for="departmentFilter" class="form-label">Filter by Department</label>
-        <select class="form-select" id="departmentFilter">
-          <option value="" selected>All Departments</option>
-          <option value="Computer Science">Computer Science</option>
-          <option value="Data Science">Data Science</option>
-          <option value="Electrical Engineering">Electrical Engineering</option>
-          <option value="Mechanical Engineering">Mechanical Engineering</option>
-          <option value="Business Administration">Business Administration</option>
-          <option value="Biotechnology">Biotechnology</option>
-        </select>
-      </div>
+  <h1 class="text-center">Student Page</h1>
+
+  <!-- Department Filter -->
+  <!-- Department Search -->
+  <div class="row mb-3">
+    <div class="col-8">
+      <label for="departmentFilter" class="form-label">Enter Department Name</label>
+      <input type="text" class="form-control" id="departmentFilter" placeholder="e.g., computer science">
     </div>
-    
-    <!-- Syllabus List -->
-    <div id="courseList" class="list-group">
-      <!-- Course list will be dynamically populated -->
+    <div class="col-4 d-flex align-items-end">
+      <button id="searchBtn" class="btn btn-dark w-100">Search</button>
     </div>
-    <hr>
-    <!-- Question Query Section -->
-    <div id="querySection" class="mt-4">
-        <h3>Ask Questions About Syllabus</h3>
-        <textarea id="questionInput" class="form-control mb-3" placeholder="Type your question here..."></textarea>
-        <button id="askQuestionBtn" class="btn btn-dark">Chat</button>
-        <div id="answerOutput" class="mt-3 text-muted">
-          <!-- Answer will be displayed here -->
-        </div>
-      </div>    
   </div>
+
+
+
+  <!-- Syllabus List -->
+  <div id="courseList" class="list-group">
+    <!-- Course list will be dynamically populated -->
+  </div>
+  <hr>
+  <!-- Question Query Section -->
+  <div id="querySection" class="mt-4">
+    <h3>Ask Questions About Syllabus</h3>
+    <textarea id="questionInput" class="form-control mb-3" placeholder="Type your question here..."></textarea>
+    <button id="askQuestionBtn" class="btn btn-dark">Chat</button>
+    <div id="answerOutput" class="mt-3 text-muted">
+      <!-- Answer will be displayed here -->
+    </div>
+  </div>
+</div>

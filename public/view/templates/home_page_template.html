@@ -1,40 +1,37 @@
 <div class="syllabus-upload">
-  <h2 class="text-center">Syllabi Upload</h2>
-  <form id="syllabus-upload-form">
-      <!-- Department Dropdown -->
-      <div class="mb-3">
-          <label for="department" class="form-label">Department</label>
-          <select name="department" required class="form-select" id="department">
-              <option value="" disabled selected>Select department</option>
-              <option value="Computer Science">Computer Science</option>
-              <option value="Data Science">Data Science</option>
-              <option value="Electrical Engineering">Electrical Engineering</option>
-              <option value="Mechanical Engineering">Mechanical Engineering</option>
-              <option value="Business Administration">Business Administration</option>
-              <option value="Biotechnology">Biotechnology</option>
-          </select>
-      </div>
-
-      <!-- Course Number -->
-      <div class="mb-3">
-          <label for="courseNumber" class="form-label">CRN Number</label>
-          <input name="courseNumber" required type="text" class="form-control" id="courseNumber" placeholder="Enter course number">
-      </div>
-
-      <!-- Course Name -->
-      <div class="mb-3">
-          <label for="courseName" class="form-label">Course Name</label>
-          <input name="courseName" required type="text" class="form-control" id="courseName" placeholder="Enter course name">
-      </div>
-
-      <!-- Syllabus Upload -->
-      <div class="mb-3">
-          <label for="syllabus" class="form-label">Syllabi (PDF ONLY)</label>
-          <input name="syllabus" required type="file" accept="application/pdf" class="form-control" id="syllabus">
-      </div>
+    <h2 class="text-center">Syllabi Upload</h2>
+    <form id="syllabus-upload-form">
+        <!-- Department Dropdown -->
+        <!-- Department Input -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <input name="department" required type="text" class="form-control" id="department"
+                placeholder="Enter department name">
+        </div>
 
 
-      <!-- Submit Button -->
-      <button type="submit" class="btn btn-dark">Upload</button>
-  </form>
+        <!-- Course Number -->
+        <div class="mb-3">
+            <label for="courseNumber" class="form-label">CRN Number</label>
+            <input name="courseNumber" required type="text" class="form-control" id="courseNumber"
+                placeholder="Enter course number">
+        </div>
+
+        <!-- Course Name -->
+        <div class="mb-3">
+            <label for="courseName" class="form-label">Course Name</label>
+            <input name="courseName" required type="text" class="form-control" id="courseName"
+                placeholder="Enter course name">
+        </div>
+
+        <!-- Syllabus Upload -->
+        <div class="mb-3">
+            <label for="syllabus" class="form-label">Syllabi (PDF ONLY)</label>
+            <input name="syllabus" required type="file" accept="application/pdf" class="form-control" id="syllabus">
+        </div>
+
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-dark">Upload</button>
+    </form>
 </div>

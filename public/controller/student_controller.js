@@ -17,7 +17,7 @@ export async function getSyllabus(department) {
         // Query Firestore for syllabus in the selected department
         const syllabusQuery = query(
             collection(db, "syllabi"),
-            where("department", "==", department)
+            where("department", "==", department.trim().toLowerCase())
         );
         const querySnapshot = await getDocs(syllabusQuery);
 

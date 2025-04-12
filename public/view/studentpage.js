@@ -12,11 +12,19 @@ export async function studentPageView() {
     root.appendChild(divWrapper);
 
     // Attach event listener to department filter
+    // Search button handler
+    const searchBtn = document.getElementById("searchBtn");
     const departmentFilter = document.getElementById("departmentFilter");
-    departmentFilter.addEventListener("change", (event) => {
-        const selectedDepartment = event.target.value;
-        getSyllabus(selectedDepartment); // Fetch and display syllabus
+
+    searchBtn.addEventListener("click", () => {
+        const selectedDepartment = departmentFilter.value.trim().toLowerCase();
+        if (!selectedDepartment) {
+            alert("Please enter a department name.");
+            return;
+        }
+        getSyllabus(selectedDepartment);
     });
+
 
     // Attach event listener to ask question button
     const askQuestionBtn = document.getElementById("askQuestionBtn");

@@ -1,51 +1,23 @@
-# RAG CHAT BOT
+# 🤖 RAG-CHAT-BOT
 
-This project is a web-based application that allows students to interact with uploaded course syllabi using natural language queries. The platform integrates Firebase for data management and storage and uses `pdf.js` for PDF parsing to provide a seamless experience.
-
----
-
-## Features
-
-- **Filter by Department**: Students can select a department to view all associated courses and their syllabi.
-- **Download Syllabus**: Students can click on any course to download or view the syllabus PDF.
-- **Upload PDF Syllabus**: Users can upload PDF syllabi for processing and storage.
-- **Natural Language Query**: Students can ask questions about the syllabus using a natural language interface powered by a backend LLM server hosted in UCO.
+A **Smart Data Query Assistant** built using JavaScript, Firebase, and PDF.js.  
+This project allows faculty to upload course syllabi and enables students to query those documents using a Retrieval-Augmented Generation (RAG) model integrated via an external LLM API.
 
 ---
 
-## Technologies Used
+## 🧩 Features
 
-- **Frontend**:
-  - HTML, CSS, JavaScript
-  - `pdf.js` for in-browser PDF text extraction
-
-- **Backend**:
-  - Firebase Firestore for database management
-  - Firebase Storage for storing syllabus PDFs
-  - An LLM server for answering natural language queries (`http://csai01:8000/generate/`)
+- 🔐 Faculty authentication (sign in / sign up)
+- 📤 Upload course syllabi (PDF only)
+- 📚 Extracts and stores text content from PDFs
+- 🔍 Students can query syllabi using natural language
+- 💬 Integration with an LLM (via local API)
+- ☁️ Uses Firebase Firestore and Storage
+- 🌗 Supports Dark/Light mode toggle
 
 ---
 
-## Prerequisites
-
-### Firebase Configuration
-1. Set up a Firebase project.
-2. Configure Firestore with a `syllabi` collection. Each document should contain:
-   - `department`: The department name (e.g., "Computer Science").
-   - `courseName`: The name of the course (e.g., "Data Structures").
-   - `courseNumber`: The course number (e.g., "CS202").
-   - `fileURL`: A link to the uploaded PDF syllabus.
-
-3. Configure Firebase Storage to allow uploading PDF files.
-
-### Dependencies
-- **pdf.js**:
-  Add the following script to your `HTML`:
-  ```html
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-
-
-## File Structure
+## 📁 Folder Structure
 
 ```
 /project-root
@@ -62,8 +34,64 @@ This project is a web-based application that allows students to interact with up
 ├── index.html                   # Main entry point
 ├── app.js                       # Centralized routing and event handling
 ├── studentpage.js               # Handles student page rendering and interactions
-├── README.md                    # Documentation
+├── [README.md](http://_vscodecontentref_/0)                    # Documentation
+
 ```
 
-#### License
-This project is licensed under the GNU GENERAL PUBLIC LICENSE. See the LICENSE file for details.
+---
+
+## 🚀 Getting Started (Run Locally)
+
+### ✅ Prerequisites
+
+- [Node.js](https://nodejs.org/) installed
+- Firebase CLI installed  
+  Run: `npm install -g firebase-tools`
+- A Firebase project with:
+  - **Authentication (Email/Password)** enabled
+  - **Firestore** and **Storage** set up
+
+---
+
+### 📦 Installation
+
+```bash
+git clone https://github.com/YOUR_USERNAME/RAG-CHAT-BOT.git
+cd RAG-CHAT-BOT
+npm install
+```
+
+### ✅ Prerequisites
+
+- [Node.js](https://nodejs.org/) installed
+- Firebase CLI installed  
+  Run: `npm install -g firebase-tools`
+- A Firebase project with:
+  - **Authentication (Email/Password)** enabled
+  - **Firestore** and **Storage** set up
+
+### 🔧 Configuration
+1. **Firebase Configuration**:  
+   Update the Firebase configuration in `controller/firebase_core.js` with your project's credentials.
+2. **LLM API**:
+   Update the LLM API endpoint in `controller/student_controller.js` with your API URL.
+3. **Firebase Authentication**:  
+   Ensure that Firebase authentication is set up correctly in your Firebase console.
+4. **Firebase Firestore Rules**:
+   Ensure that your Firestore rules allow read/write access for authenticated users.  
+   Example rules:
+   ```json
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /{document=**} {
+         allow read, write: if request.auth != null;
+       }
+     }
+   }
+   ```
+
+#### To run the project locally, use the following command:
+```bash
+firebase serve
+```
+This will start a local server, and you can access the application at `http://localhost:5000`.

@@ -1,5 +1,5 @@
 import { root } from "./elements.js";
-import { signinFirebase } from "../controller/firebase_auth.js";
+import { signinFirebase, createFacultyAccount } from "../controller/firebase_auth.js";
 import { studentPageView } from "./studentpage.js"; // Import student page view
 
 export async function signinPageView() {
@@ -15,6 +15,22 @@ export async function signinPageView() {
     // Attach form submit event listener
     const form = divWrapper.getElementsByTagName('form')[0];
     form.onsubmit = signinFirebase;
+
+    const createAccountBtn = divWrapper.querySelector('#create-account-btn');
+    createAccountBtn.onclick = async () => {
+        const signupResponse = await fetch('/view/templates/create_account_template.html', {
+            cache: 'no-store'
+        });
+        const signupWrapper = document.createElement('div');
+        signupWrapper.innerHTML = await signupResponse.text();
+        signupWrapper.classList.add('m-4', 'p-4');
+
+        root.innerHTML = '';
+        root.appendChild(signupWrapper);
+
+        const signupForm = signupWrapper.querySelector('#create-account-form');
+        signupForm.onsubmit = createFacultyAccount;
+    };
 
     // Attach event listener to the Student Access button
     const studentAccessBtn = divWrapper.querySelector("#student-access-btn");

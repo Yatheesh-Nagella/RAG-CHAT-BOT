@@ -78,6 +78,10 @@ export async function askQuestion(prompt) {
     const payload = {
         prompt: `${context}\n\n${prompt}`, // Combine syllabus content with user question
         max_tokens: 200,
+        temperature: 0.75,
+        top_p: 0.9,
+        frequency_penalty: 0.1,
+        presence_penalty: 0.1,
     };
 
     try {
